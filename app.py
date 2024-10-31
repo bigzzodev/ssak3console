@@ -13,10 +13,10 @@ def main():
     # st.write('뉴스기사 **분석** 내용')
 
     with st.sidebar:
-        st.subheader("뉴스기사 선택")
+        st.subheader("뉴스기사 분석 시스템")
         # 가수별
         singer_opt = list(ST_ANALYTICS.keys())
-        selected_singer = st.selectbox(label="분석할 가수를 선택하세요", options=singer_opt,)
+        selected_singer = st.selectbox(label="가수를 선택하세요", options=singer_opt,)
         func, year_opt = ST_ANALYTICS[selected_singer]
         # selected_year = st.selectbox(label="확인할 년도를 선택하세요", options=year_opt,)
         # st.write("You selected:", selected_year)
