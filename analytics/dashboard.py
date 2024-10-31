@@ -66,7 +66,7 @@ def all_dashboard(_singer):
     # st.subheader(f'{head} - {_singer}')
     st.subheader(f'{_singer}')
 
-    fmname = f'/Users/eastjoo/works/ai/ssak3mart01/jsondata/year_{_singer}.json'
+    fmname = f'./jsondata/year_{_singer}.json'
     with open(fmname, "r", encoding="utf-8") as file:
         year_data = json.load(file)
 
@@ -98,7 +98,7 @@ def year_dashboard(_singer, _selected_year, susu):
     # st.subheader(f'{head} - {_singer}')
     st.subheader(f'{head} - ({susu})')
     names = SX_CLASS_NAME
-    fmname = f'/Users/eastjoo/works/ai/ssak3mart01/jsondata/month_{_singer}.json'
+    fmname = f'./jsondata/month_{_singer}.json'
     with open(fmname, "r", encoding="utf-8") as file:
         month_data = json.load(file)
 
@@ -144,7 +144,7 @@ def month_dashboard(_singer, susu, _year, _month):
     head = f'{_year} {_month}'
     st.subheader(f'{head} - ({susu})')
     names = SX_CLASS_NAME
-    fdname = f'/Users/eastjoo/works/ai/ssak3mart01/jsondata/day_{_singer}.json'
+    fdname = f'./jsondata/day_{_singer}.json'
     with open(fdname, "r", encoding="utf-8") as file:
         day_data = json.load(file)
     ynname = head.replace("년 ", "-").replace("월", "").strip()
