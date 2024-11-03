@@ -353,9 +353,51 @@ def class_dashboard(_singer, day_data, _dname, _class):
 
     #####################################################################
     url_list = _get_urls(day_data, _dname, f'class_{_class}')
+    # with st.expander("URLS:"):
+    #     for _idx in url_list:
+    #         st.write(_idx)
+
+    # with st.expander("URLS:"):
+    #     for idx, url in enumerate(url_list):
+    #         # Unique key for each URL to manage its state
+    #         key = f"url_{idx}"
+    #         if key not in st.session_state:
+    #             st.session_state[key] = False
+
+    #         # Create columns for the URL label and the button
+    #         cols = st.columns([0.85, 0.15])
+    #         with cols[0]:
+    #             st.write(f"URL {idx+1}")
+    #             # st.write(key)
+    #         with cols[1]:
+    #             # Button to toggle the display of the URL
+    #             if st.button("Show", key=f"show_button_{idx}"):
+    #                 st.session_state[key] = not st.session_state[key]
+
+    #         # Display the URL if the button has been clicked
+    #         if st.session_state[key]:
+    #             st.code(url)
+
+
     with st.expander("URLS:"):
-        for _idx in url_list:
-            st.write(_idx)
+        for idx, url in enumerate(url_list):
+            # Create a unique key for each URL button by including class and date
+            key = f"url_{_class}_{_dname}_{idx}"
+            if key not in st.session_state:
+                st.session_state[key] = False
+
+            # Create columns for the URL and the button
+            cols = st.columns([0.85, 0.15])
+            with cols[0]:
+                st.write(url)
+            with cols[1]:
+                # Button with a unique key
+                if st.button("의견 보기", key=f"show_button_{_class}_{_dname}_{idx}"):
+                    st.session_state[key] = not st.session_state[key]
+
+            # Display 'hello' if the button has been clicked
+            if st.session_state[key]:
+                st.write('hello')
 
     st.divider()
 
